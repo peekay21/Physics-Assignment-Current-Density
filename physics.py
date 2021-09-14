@@ -5,10 +5,12 @@ import matplotlib.pyplot as plt
 
 phi = 3
 E_F = 0
-F = 1E7
+# j variable for increment of F
+j = 7 
+F = 10**j # expontial expression represents 10 to power 7
 x = []
 y = []
-for i in range(200):
+for i in range(1,30):
 
     a = (1.54143E-6*F*F)/phi
     b = (6.83089E7 * math.pow(phi,1.5)/F)
@@ -42,6 +44,13 @@ for i in range(200):
     
     #increment
     E_F = E_F + 0.2
+
+    if i%10==0:
+        j +=1
+        F = 10**j
+    else:
+        F = (i%10) * (10 ** j)
+
 
 print(x)
 print(y)
